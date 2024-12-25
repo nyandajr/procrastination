@@ -1,10 +1,10 @@
 import streamlit as st
-from openai import OpenAI
+import openai
 import plotly.graph_objects as go
 import os
 
 # Use the secret
-XAI_API_KEY = st.secrets["XAI_API_KEY"]
+openai.api_key = st.secrets["XAI_API_KEY"]
 
 # Then initialize your client or use the key as needed
 client = OpenAI(
@@ -51,7 +51,7 @@ def restart():
 
 def send_to_grok(score):
     try:
-        completion = client.chat.completions.create(
+        openai.Completion.create(
             model="grok-2-1212",
             messages=[
                 {"role": "system", "content": "You are an AI that interprets procrastination scores. Higher scores indicate more severe procrastination. Your response should first congratulate the user for taking the test, then interpret the score, explain what procrastination is, suggest some coping mechanisms, and encourage seeking a therapist if necessary."},
