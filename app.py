@@ -3,14 +3,10 @@ from openai import OpenAI
 import plotly.graph_objects as go
 import os
 
-# Load API key from environment variable
-XAI_API_KEY = os.getenv('XAI_API_KEY')
+# Use the secret
+XAI_API_KEY = st.secrets["XAI_API_KEY"]
 
-if not XAI_API_KEY:
-    raise ValueError("XAI_API_KEY environment variable is not set")
-
-
-# Initialize Grok client
+# Then initialize your client or use the key as needed
 client = OpenAI(
     api_key=XAI_API_KEY,
     base_url="https://api.x.ai/v1",
