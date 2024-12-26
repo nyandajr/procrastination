@@ -15,15 +15,25 @@ client = OpenAI(
 # Define questions and options
 questions = [
     "1. Does procrastination come naturally to you? (e.g., putting off tasks even when they are simple)",
-    "2. Do you have responsibilities that you're not doing? (e.g., work assignments or household chores)",
-    "3. Do you have plans that stay on the drawing board? (e.g., unfinished personal projects)",
-    "4. Do you sidestep uncomfortable priorities? (e.g., avoiding difficult conversations or tasks)",
-    "5. Do you tell yourself that later is the time to begin? (e.g., saying 'I'll start tomorrow' repeatedly)",
-    "6. Do you start things that you don't finish? (e.g., leaving projects half-done)",
-    "7. Do you have a habit of showing up late? (e.g., being consistently late to meetings or events)",
-    "8. Do you delay acting to meet a deadline? (e.g., waiting until the last minute to begin tasks)",
-    "9. Do you find ways to extend deadlines? (e.g., asking for extensions unnecessarily)",
-    "10. Do you come up with excuses to explain delays? (e.g., blaming circumstances instead of taking responsibility)",
+    "2. Do you often find yourself saying 'I'll do it later' when faced with even the simplest tasks? (e.g., delaying starting a task even when it's easy to do)",
+    "3. Do you have responsibilities that you're not doing? (e.g., work assignments or household chores)",
+    "4. Are there responsibilities piling up that you keep putting off, like work projects or household chores? (e.g., avoiding work or personal tasks)",
+    "5. Do you have plans that stay on the drawing board? (e.g., unfinished personal projects)",
+    "6. Do your big ideas often stay locked in the 'someday' drawer without ever getting started? (e.g., planning to write a book or start a hobby but never following through)",
+    "7. Do you sidestep uncomfortable priorities? (e.g., avoiding difficult conversations or tasks)",
+    "8. Are you a master of avoiding tough conversations or uncomfortable tasks, hoping they'll magically disappear? (e.g., putting off important but uncomfortable discussions)",
+    "9. Do you tell yourself that later is the time to begin? (e.g., saying 'I'll start tomorrow' repeatedly)",
+    "10. How often do you convince yourself that tomorrow is the perfect day to start... tomorrow never seems to come? (e.g., repeatedly postponing tasks despite knowing they are important)",
+    "11. Do you start things that you don't finish? (e.g., leaving projects half-done)",
+    "12. Are you the king/queen of starting things with enthusiasm... but never quite finishing them? (e.g., starting many projects but rarely completing them)",
+    "13. Do you have a habit of showing up late? (e.g., being consistently late to meetings or events)",
+    "14. Do you often find yourself rushing in at the last second, just as the meeting or event is about to start? (e.g., constantly arriving late to appointments)",
+    "15. Do you delay acting to meet a deadline? (e.g., waiting until the last minute to begin tasks)",
+    "16. Are you an expert at waiting until the last possible second to start working on something with a deadline? (e.g., working late into the night to meet deadlines)",
+    "17. Do you find ways to extend deadlines? (e.g., asking for extensions unnecessarily)",
+    "18. Do you sometimes feel like you're on a quest to push deadlines just a little bit further than necessary? (e.g., requesting deadline extensions when you could have finished earlier)",
+    "19. Do you come up with excuses to explain delays? (e.g., blaming circumstances instead of taking responsibility)",
+    "20. When things get delayed, are you quick to find the perfect excuse instead of owning up to it? (e.g., blaming external factors for missed deadlines)"
 ]
 options = ["Not at all", "Several times", "Nearly every day"]
 
@@ -55,7 +65,7 @@ def send_to_grok(score):
             model="grok-2-1212",
             messages=[
                 {"role": "system", "content": "You are an AI that interprets procrastination scores. Higher scores indicate more severe procrastination. Your response should first congratulate the user for taking the test, then interpret the score, explain what procrastination is, suggest some coping mechanisms, and encourage seeking a therapist if necessary."},
-                {"role": "user", "content": f"My procrastination score is {score} out of 20. Please provide an analysis."}
+                {"role": "user", "content": f"My procrastination score is {score} out of 40. Please provide an analysis."}
             ]
         )
         interpretation = completion.choices[0].message.content
