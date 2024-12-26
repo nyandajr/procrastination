@@ -3,14 +3,10 @@ from openai import OpenAI
 import plotly.graph_objects as go
 import os
 
-# Load API key from environment variable
-XAI_API_KEY = os.getenv('XAI_API_KEY')
+# Use the secret
+XAI_API_KEY = st.secrets["XAI_API_KEY"]
 
-if not XAI_API_KEY:
-    raise ValueError("XAI_API_KEY environment variable is not set")
-
-
-# Initialize Grok client
+# Then initialize your client or use the key as needed
 client = OpenAI(
     api_key=XAI_API_KEY,
     base_url="https://api.x.ai/v1",
@@ -89,6 +85,8 @@ st.markdown(
         visibility: hidden;
     }
     div.block-container {
+        
+        
         padding-top: 1rem; /* Remove top padding to move navbar up */
     }
     /* Full-width dark orange banner at the top */
@@ -153,14 +151,16 @@ if st.session_state.current_page == "Home":
     <h1 style="text-align: center; 
                font-family: 'Arial Black', Gadget, sans-serif; 
                font-size: 2.5em; 
-               color: #fff; 
-               text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+               color: #D2691E; /* Dark Orange text color */
+               background-color: #000; /* Black background */
+               padding: 10px; /* Add some padding for a better look */
+               border-radius: 10px; /* Rounded edges */
                margin-bottom: 20px;">
         Welcome to Our Procrastination Analysis App
     </h1>
     """,
     unsafe_allow_html=True
-    )
+)
     st.markdown(
         """
         <div style="
@@ -247,16 +247,16 @@ elif st.session_state.current_page == "Assessment":
                 ]
             }
         ))
-
         st.plotly_chart(fig)
 
         # Send the score to Grok for interpretation
         interpretation = send_to_grok(total_score)
         st.markdown(interpretation, unsafe_allow_html=True)  # Use markdown to render HTML
 
-        # Restart option
-        if st.button("Restart Assessment"):
-            restart()
+        # Back to Top Button
+        if st.button("Back to Top"):
+            st.session_state.current_page = "Home"
+            st.rerun()  # Rerun the app to reset view to the top
 
 elif st.session_state.current_page == "Resources/Articles":
     st.title("Resources/Articles")
