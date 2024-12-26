@@ -262,17 +262,28 @@ elif st.session_state.current_page == "Resources/Articles":
     st.title("Resources/Articles")
 
     st.markdown(
-        """
-        <div style="font-family: Arial, sans-serif; line-height: 1.6;">
-            <p>These resources can help you manage procrastination. Please find time to read them:</p>
-            <ul style="list-style-type: square; padding-left: 20px;">
-                <li><a href="https://tanaamen.com/7-ways-to-beat-procrastination-and-get-stuff-done-now/" target="_blank">7 Ways to Beat Procrastination and Get Stuff Done</a></li>
-                <li><a href="https://mcgraw.princeton.edu/undergraduates/resources/resource-library/understanding-and-overcoming-procrastination" target="_blank">Understanding and Overcoming Procrastination (Princeton)</a></li>
-                <li><a href="https://www.nytimes.com/2019/03/25/smarter-living/why-you-procrastinate-it-has-nothing-to-do-with-self-control.html" target="_blank">Why You Procrastinate - NY Times</a></li>
-                <li><a href="https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2022.783570/full" target="_blank">Procrastination - Insights from Psychology</a></li>
-                <li><a href="https://www.researchgate.net/publication/374642425_The_Dangers_of_Procrastination_for_Learners" target="_blank">The Dangers of Procrastination for Learners</a></li>
-            </ul>
-        </div>
-        """,
-        unsafe_allow_html=True
-    )
+    """
+    <div style="
+        font-family: Arial, sans-serif; 
+        line-height: 1.6; 
+        border: 1px solid #ddd; 
+        border-radius: 8px; 
+        box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1); 
+        padding: 20px; 
+        background-color: #f9f9f9;
+        margin: 20px 0;">
+        <p style="font-size: 16px; color: #333; margin-bottom: 10px;">
+            These resources can help you manage procrastination. Please find time to read them:
+        </p>
+        <ul style="list-style-type: square; padding-left: 20px; color: #555;">
+            <li><a href="https://tanaamen.com/7-ways-to-beat-procrastination-and-get-stuff-done-now/" target="_blank" style="color: #007BFF; text-decoration: none;">7 Ways to Beat Procrastination and Get Stuff Done</a></li>
+            <li><a href="https://mcgraw.princeton.edu/undergraduates/resources/resource-library/understanding-and-overcoming-procrastination" target="_blank" style="color: #007BFF; text-decoration: none;">Understanding and Overcoming Procrastination (Princeton)</a></li>
+            <li><a href="https://www.nytimes.com/2019/03/25/smarter-living/why-you-procrastinate-it-has-nothing-to-do-with-self-control.html" target="_blank" style="color: #007BFF; text-decoration: none;">Why You Procrastinate - NY Times</a></li>
+            <li><a href="https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2022.783570/full" target="_blank" style="color: #007BFF; text-decoration: none;">Procrastination - Insights from Psychology</a></li>
+            <li><a href="https://www.researchgate.net/publication/374642425_The_Dangers_of_Procrastination_for_Learners" target="_blank" style="color: #007BFF; text-decoration: none;">The Dangers of Procrastination for Learners</a></li>
+        </ul>
+    </div>
+    """,
+    unsafe_allow_html=True
+)
+
